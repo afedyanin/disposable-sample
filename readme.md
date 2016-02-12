@@ -3,7 +3,7 @@
 
 ### 1. Dispose of IDisposable objects as soon as you can
 
-'''C#
+```C#
 
     using (var state = new DatabaseState())
     {
@@ -21,11 +21,11 @@
     {
 	    state.Dispose();
     }
-'''
+```
    
 ### 2. If you use IDisposable objects as instance fields, implement IDisposable
 
-'''C#
+```C#
 
     public class DatabaseState : IDisposable
     {
@@ -51,11 +51,11 @@
 		}
 	}
 
-'''
+```
 
 ### 3. Allow Dispose() to be called multiple times and don't throw exceptions
 
-'''C#
+```C#
 
 	protected virtual void Dispose(bool disposing)
 	{
@@ -69,11 +69,11 @@
 		}
 	}
 
-'''
+```
 
 ### 4. Implement IDisposable to support disposing resources in a class hierarchy
 
-'''C#
+```C#
 
 	public class DatabaseState : IDisposable
 	{
@@ -86,11 +86,11 @@
 		protected virtual void Dispose(bool disposing)
 	...
 
-'''
+```
    
 ### 5. If you use unmanaged resources, declare a finalizer which cleans them up 
 
-'''C#
+```C#
 
 	~UnmanagedDatabaseState()
 	{
@@ -108,7 +108,7 @@
 		}
 		base.Dispose(disposing);
 	}
-'''
+```
 
 ### 6. Enable Code Analysis with CA2000 enabled – but don’t rely on it
 
@@ -116,7 +116,7 @@ CA2000: Dispose objects before losing scope
  
 ### 7. If you implement an interface and use IDisposable fields, extend your interface from IDisposable
 
-'''C#
+```C#
 
 	public class BookFeedRepository : IBookFeedRepository
 	{
@@ -128,10 +128,10 @@ CA2000: Dispose objects before losing scope
 		//...
 	}
 
-'''
+```
 ### 8. If you implement IDisposable, don’t implement it explicitly
 
-'''C#
+```C#
 	
 	public class DifficultToDiscover : IDisposable
 	{
@@ -149,7 +149,7 @@ CA2000: Dispose objects before losing scope
 		}
 	}
 
-'''
+```
 
 #### IDisposable Best Practices for C# Developers 
 
