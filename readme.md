@@ -3,7 +3,7 @@
 
 ### 1. Dispose of IDisposable objects as soon as you can
 
-'''csharp
+'''c#
 
     using (var state = new DatabaseState())
     {
@@ -25,7 +25,7 @@
    
 ### 2. If you use IDisposable objects as instance fields, implement IDisposable
 
-'''csharp
+'''c#
 
     public class DatabaseState : IDisposable
     {
@@ -55,7 +55,7 @@
 
 ### 3. Allow Dispose() to be called multiple times and don't throw exceptions
 
-'''csharp
+'''c#
 
 	protected virtual void Dispose(bool disposing)
 	{
@@ -73,7 +73,7 @@
 
 ### 4. Implement IDisposable to support disposing resources in a class hierarchy
 
-'''csharp
+'''c#
 
 	public class DatabaseState : IDisposable
 	{
@@ -90,7 +90,7 @@
    
 ### 5. If you use unmanaged resources, declare a finalizer which cleans them up 
 
-'''csharp
+'''c#
 
 	~UnmanagedDatabaseState()
 	{
@@ -116,7 +116,7 @@ CA2000: Dispose objects before losing scope
  
 ### 7. If you implement an interface and use IDisposable fields, extend your interface from IDisposable
 
-'''csharp
+'''c#
 
 	public class BookFeedRepository : IBookFeedRepository
 	{
@@ -131,7 +131,7 @@ CA2000: Dispose objects before losing scope
 '''
 ### 8. If you implement IDisposable, don’t implement it explicitly
 
-'''csharp
+'''c#
 	
 	public class DifficultToDiscover : IDisposable
 	{
